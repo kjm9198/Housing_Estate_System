@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class PacmanGame extends JFrame {
     private static final double POWER_UP_SPAWN_PROBABILITY = 0.25;
 
     private JTable gameBoard;
-//    private PacmanTableModel tableModel;
+    private PacmanTableModel tableModel;
     private Timer timer;
     private int pacmanRow, pacmanCol, pacmanDirection;
     private int score, lives, time;
@@ -28,9 +29,15 @@ public class PacmanGame extends JFrame {
         setLocationRelativeTo(null);
 
         createMenu();
-//        startGame();
+        initializeGame();
         setVisible(true);
+        tableModel = new PacmanTableModel();
+        char[][] initialGameBoard = generateGameBoard(getBoardSizeFromUserInput());
+        tableModel.setGameBoard(initialGameBoard);
 
+        gameBoard = new JTable(tableModel);
+        JScrollPane scrollPane = new JScrollPane(gameBoard);
+        add(scrollPane);
     }
 
     private void createMenu() {
@@ -40,8 +47,8 @@ public class PacmanGame extends JFrame {
         JMenuItem highScoresItem = new JMenuItem("High Scores");
         JMenuItem exitItem = new JMenuItem("Exit");
 
-//        newGameItem.addActionListener(e -> startNewGame());
-//        highScoresItem.addActionListener(e -> showHighScores());
+        newGameItem.addActionListener(e -> startNewGame());
+        highScoresItem.addActionListener(e -> showHighScores());
         exitItem.addActionListener(e -> System.exit(0));
 
         menu.add(newGameItem);
@@ -53,7 +60,7 @@ public class PacmanGame extends JFrame {
 
     }
 
-    public void startGame() {
+    public void initializeGame() {
         int boardSize = getBoardSizeFromUserInput();
         char[][] gameBoard = generateGameBoard(boardSize);
 
@@ -78,7 +85,35 @@ public class PacmanGame extends JFrame {
         timer.start();
     }
 
+    private void startNewGame() {
+        // stopping the timer if it's running
+        if (timer != null && timer.isRunning()) {
+            timer.stop();
+        }
 
+        initializeGame();
+
+        char[][] newGameBoard = generateGameBoard(getBoardSizeFromUserInput());
+        updateTableModel(newGameBoard);
+
+        timer.restart();
+    }
+
+    private void updateTableModel(char[][] newGameBoard) {
+        for (int i = 0; i < newGameBoard.length; i++) {
+            for (int j = 0; j < newGameBoard[i].length; j++) {
+                tableModel.setValueAt(newGameBoard[i][j], i, j);
+            }
+        }
+        gameBoard.setModel(tableModel);
+    }
+    private void showHighScores() {
+
+    }
+
+    private void updateGame() {
+        // Update pacman positionm check collisions, update power ups
+    }
     private int getBoardSizeFromUserInput() {
         int boardSize = 0;
         boolean validInput = false;
@@ -101,6 +136,11 @@ public class PacmanGame extends JFrame {
         }
         return boardSize;
     }
+
+    private void handleKeyPress(int key) {
+        // moving the pacman
+    }
+
 
 
     private char[][] generateGameBoard (int boardSize) {
@@ -140,8 +180,41 @@ public class PacmanGame extends JFrame {
     private class PowerUp {
         // TODO: Implement PowerUp class
     }
+
+    private void collectPowerUp(int row, int col) {
+        // upon touching get the powerup
+    }
+
+    private void endGame() {
+        // upon the end show score save high scores etc
+    }
+
+    private class PacmanTableModel extends AbstractTableModel {
+        private char[][] gameBoard = new char[0][0];
+
+        public void setGameBoard(char[][] newGameBoard) {
+            this.gameBoard = newGameBoard;
+            fireTableDataChanged();
+        }
+
+        @Override
+        public int getRowCount() {
+            return gameBoard.length;
+        }
+
+        @Override
+        public int getColumnCount() {
+            return gameBoard.length > 0 ? gameBoard[0].length : 0;
+        }
+
+        @Override
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            return gameBoard[rowIndex][columnIndex];
+        }
+    }
+
     public static void main(String[] args) {
-        new PacmanGame();
+        SwingUtilities.invokeLater(() -> new PacmanGame());
     }
 
 }
