@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -25,7 +26,7 @@ public class PacmanGame extends JFrame {
     public PacmanGame() {
         super("Pacman Game");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800,600);
+        setSize(800, 600);
         setLocationRelativeTo(null);
 
         createMenu();
@@ -86,7 +87,6 @@ public class PacmanGame extends JFrame {
     }
 
     private void startNewGame() {
-        // stopping the timer if it's running
         if (timer != null && timer.isRunning()) {
             timer.stop();
         }
@@ -107,6 +107,7 @@ public class PacmanGame extends JFrame {
         }
         gameBoard.setModel(tableModel);
     }
+
     private void showHighScores() {
 
     }
@@ -114,11 +115,12 @@ public class PacmanGame extends JFrame {
     private void updateGame() {
         // Update pacman positionm check collisions, update power ups
     }
+
     private int getBoardSizeFromUserInput() {
         int boardSize = 0;
         boolean validInput = false;
 
-        while(!validInput) {
+        while (!validInput) {
             try {
                 String input = JOptionPane.showInputDialog("Enter the size of the game board between " +
                         BOARD_SIZE_MIN + " and " + BOARD_SIZE_MAX + "):");
@@ -138,12 +140,83 @@ public class PacmanGame extends JFrame {
     }
 
     private void handleKeyPress(int key) {
-        // moving the pacman
+        switch (key) {
+            case KeyEvent.VK_UP:
+                movePacman(UP);
+                break;
+            case KeyEvent.VK_DOWN:
+                movePacman(Down);
+                break;
+            case KeyEvent.VK_LEFT:
+                movePacman(LEFT);
+                break;
+            case KeyEvent.VK_RIGHT:
+                movePacman(RIGHT);
+                break;
+            case KeyEvent.VK_CONTROL:
+                // Handle control key (Ctrl) for additional actions if needed
+                break;
+            case KeyEvent.VK_SHIFT:
+                // Handle shift key for additional actions if needed
+                break;
+            case KeyEvent.VK_Q:
+                // Handle 'Q' key for quitting the game
+                if ((key & KeyEvent.CTRL_MASK) != 0 && (key & KeyEvent.SHIFT_MASK) != 0) {
+                    returnToMainMenu();
+                }
+                break;
+        }
+    }
+
+    private void movePacman(int direction) {
+        // Implement logic to move Pacman in the specified direction
+        // Update the Pacman's position on the game board
+
+        // Example:
+        switch (direction) {
+            case UP:
+                if (isValidMove(pacmanRow - 1, pacmanCol)) {
+                    // Move Pacman up
+                    pacmanRow--;
+                }
+                break;
+            case Down:
+                if (isValidMove(pacmanRow + 1, pacmanCol)) {
+                    // Move Pacman down
+                    pacmanRow++;
+                }
+                break;
+            case LEFT:
+                if (isValidMove(pacmanRow, pacmanCol - 1)) {
+                    // Move Pacman left
+                    pacmanCol--;
+                }
+                break;
+            case RIGHT:
+                if (isValidMove(pacmanRow, pacmanCol + 1)) {
+                    // Move Pacman right
+                    pacmanCol++;
+                }
+                break;
+        }
     }
 
 
+    private void returnToMainMenu() {
+        // Implement logic to stop the game, return to the main menu, and handle any necessary cleanup
+        // You may want to display a confirmation dialog before returning to the main menu
+        int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to return to the main menu? Your progress will be lost.", "Return to Main Menu", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            // Stop the game, return to the main menu, and perform any necessary cleanup
+            timer.stop();
+            initializeGame();
+            char[][] newGameBoard = generateGameBoard(getBoardSizeFromUserInput());
+            updateTableModel(newGameBoard);
+        }
+    }
 
-    private char[][] generateGameBoard (int boardSize) {
+
+    private char[][] generateGameBoard(int boardSize) {
         char[][] gameBoard = new char[boardSize][boardSize];
 
         for (int i = 0; i < boardSize; i++) {
@@ -157,7 +230,7 @@ public class PacmanGame extends JFrame {
 
         return gameBoard;
     }
-    
+
     private void addWalls(char[][] gameBoard) {
         int boardSize = gameBoard.length;
         for (int i = 0; i < boardSize; i++) {
@@ -169,6 +242,7 @@ public class PacmanGame extends JFrame {
             gameBoard[boardSize - 1][j] = '#'; // Bottom border
         }
     }
+
     private void spawnPowerUps() {
         Random rand = new Random();
         if (rand.nextDouble() < POWER_UP_SPAWN_PROBABILITY) {
@@ -188,6 +262,23 @@ public class PacmanGame extends JFrame {
     private void endGame() {
         // upon the end show score save high scores etc
     }
+
+    private boolean isValidMove(int row, int col) {
+        // Check if the move is within the game board boundaries
+        if (row < 0 || row >= tableModel.getRowCount() || col < 0 || col >= tableModel.getColumnCount()) {
+            return false;
+        }
+
+        // Check if the move does not collide with walls ('#')
+        if (tableModel.getValueAt(row, col).equals("#")) {
+            return false;
+        }
+
+        // Additional checks for other potential obstacles or game rules can be added here
+
+        return true;
+    }
+
 
     private class PacmanTableModel extends AbstractTableModel {
         private char[][] gameBoard = new char[0][0];
