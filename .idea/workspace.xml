@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4b087eb-0dfa-42e2-9322-8d4f201deb6a" name="Changes" comment="Added the start">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PacmanGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PacmanGame.java" afterDir="false" />
-    </list>
+    <list default="true" id="d4b087eb-0dfa-42e2-9322-8d4f201deb6a" name="Changes" comment="Added the start" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +76,7 @@
       <workItem from="1701985025983" duration="6000" />
       <workItem from="1701986821490" duration="76000" />
       <workItem from="1702087922401" duration="4381000" />
-      <workItem from="1702145934161" duration="5410000" />
+      <workItem from="1702145934161" duration="6170000" />
     </task>
     <task id="LOCAL-00001" summary="Added the start">
       <option name="closed" value="true" />
@@ -113,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702093077902</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added the start">
+      <option name="closed" value="true" />
+      <created>1702156676173</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702156676173</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
