@@ -150,67 +150,6 @@ public class PacmanGame extends JFrame {
     }
 
 
-    private void handleKeyPress(int key) {
-        switch (key) {
-            case KeyEvent.VK_A:
-                movePacman(UP);
-                break;
-            case KeyEvent.VK_DOWN:
-                movePacman(DOWN);
-                break;
-            case KeyEvent.VK_LEFT:
-                movePacman(LEFT);
-                break;
-            case KeyEvent.VK_RIGHT:
-                movePacman(RIGHT);
-                break;
-            case KeyEvent.VK_CONTROL:
-                // Handle control key (Ctrl) for additional actions if needed
-                break;
-            case KeyEvent.VK_SHIFT:
-                // Handle shift key for additional actions if needed
-                break;
-            case KeyEvent.VK_Q:
-                // Handle 'Q' key for quitting the game
-                if ((key & KeyEvent.CTRL_MASK) != 0 && (key & KeyEvent.SHIFT_MASK) != 0) {
-                    returnToMainMenu();
-                }
-                break;
-        }
-    }
-
-    private void movePacman(int direction) {
-        // Implement logic to move Pacman in the specified direction
-        // Update the Pacman's position on the game board
-
-        switch (direction) {
-            case UP:
-                if (isValidMove(pacmanRow - 1, pacmanCol)) {
-                    // Move Pacman up
-                    pacmanRow--;
-                }
-                break;
-            case DOWN:
-                if (isValidMove(pacmanRow + 1, pacmanCol)) {
-                    // Move Pacman down
-                    pacmanRow++;
-                }
-                break;
-            case LEFT:
-                if (isValidMove(pacmanRow, pacmanCol - 1)) {
-                    // Move Pacman left
-                    pacmanCol--;
-                }
-                break;
-            case RIGHT:
-                if (isValidMove(pacmanRow, pacmanCol + 1)) {
-                    // Move Pacman right
-                    pacmanCol++;
-                }
-                break;
-        }
-    }
-
 
     private void returnToMainMenu() {
         // Implement logic to stop the game, return to the main menu, and handle any necessary cleanup
@@ -262,9 +201,9 @@ public class PacmanGame extends JFrame {
     }
 
     private class PowerUp {
+
         // TODO: Implement PowerUp class
     }
-
     private void collectPowerUp(int row, int col) {
         // upon touching get the powerup
     }
@@ -291,8 +230,8 @@ public class PacmanGame extends JFrame {
 
 
     private class PacmanTableModel extends AbstractTableModel {
-        private char[][] gameBoard = new char[0][0];
 
+        private char[][] gameBoard = new char[0][0];
         public void setGameBoard(char[][] newGameBoard) {
             this.gameBoard = newGameBoard;
             fireTableDataChanged();
@@ -311,6 +250,66 @@ public class PacmanGame extends JFrame {
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
             return gameBoard[rowIndex][columnIndex];
+        }
+
+        private void movePacman(int direction) {
+            // TODO: Do the moving into one direction until it hits the wall
+
+            switch (direction) {
+                case UP:
+                    if (isValidMove(pacmanRow - 1, pacmanCol)) {
+                        // Move Pacman up
+                        pacmanRow--;
+                    }
+                    break;
+                case DOWN:
+                    if (isValidMove(pacmanRow + 1, pacmanCol)) {
+                        // Move Pacman down
+                        pacmanRow++;
+                    }
+                    break;
+                case LEFT:
+                    if (isValidMove(pacmanRow, pacmanCol - 1)) {
+                        // Move Pacman left
+                        pacmanCol--;
+                    }
+                    break;
+                case RIGHT:
+                    if (isValidMove(pacmanRow, pacmanCol + 1)) {
+                        // Move Pacman right
+                        pacmanCol++;
+                    }
+                    break;
+            }
+        }
+
+        private void handleKeyPress(int key) {
+            switch (key) {
+                case KeyEvent.VK_A:
+                    movePacman(UP);
+                    break;
+                case KeyEvent.VK_DOWN:
+                    movePacman(DOWN);
+                    break;
+                case KeyEvent.VK_LEFT:
+                    movePacman(LEFT);
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    movePacman(RIGHT);
+                    break;
+                case KeyEvent.VK_CONTROL:
+                    // Handle control key (Ctrl) for additional actions if needed
+                    break;
+                case KeyEvent.VK_SHIFT:
+                    // Handle shift key for additional actions if needed
+                    break;
+                case KeyEvent.VK_Q:
+                    // Handle 'Q' key for quitting the game
+                    if ((key & KeyEvent.CTRL_MASK) != 0 && (key & KeyEvent.SHIFT_MASK) != 0) {
+                        returnToMainMenu();
+                    }
+                    break;
+            }
         }
     }
 

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4b087eb-0dfa-42e2-9322-8d4f201deb6a" name="Changes" comment="Added the start">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d4b087eb-0dfa-42e2-9322-8d4f201deb6a" name="Changes" comment="Continuing the work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PacmanGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PacmanGame.java" afterDir="false" />
     </list>
@@ -48,6 +47,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -84,7 +84,8 @@
       <workItem from="1702166396560" duration="5220000" />
       <workItem from="1702178038985" duration="667000" />
       <workItem from="1702481788478" duration="566000" />
-      <workItem from="1702548275362" duration="1967000" />
+      <workItem from="1702548275362" duration="3306000" />
+      <workItem from="1702557386851" duration="641000" />
     </task>
     <task id="LOCAL-00001" summary="Added the start">
       <option name="closed" value="true" />
@@ -134,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702166410533</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Continuing the work">
+      <option name="closed" value="true" />
+      <created>1702556201822</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702556201822</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +151,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added the start" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the start" />
+    <MESSAGE value="Continuing the work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continuing the work" />
   </component>
 </project>
