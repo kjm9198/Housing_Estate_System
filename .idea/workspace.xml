@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4b087eb-0dfa-42e2-9322-8d4f201deb6a" name="Changes" comment="Added the start">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PacmanGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PacmanGame.java" afterDir="false" />
     </list>
@@ -81,6 +82,9 @@
       <workItem from="1702087922401" duration="4381000" />
       <workItem from="1702145934161" duration="6170000" />
       <workItem from="1702166396560" duration="5220000" />
+      <workItem from="1702178038985" duration="667000" />
+      <workItem from="1702481788478" duration="566000" />
+      <workItem from="1702548275362" duration="1967000" />
     </task>
     <task id="LOCAL-00001" summary="Added the start">
       <option name="closed" value="true" />

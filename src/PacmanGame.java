@@ -9,8 +9,7 @@ import java.util.Random;
 public class PacmanGame extends JFrame {
     private static final long serialVersionUID = 1L;
     private static final int CELL_SIZE = 30;
-    private static final int UP = 1, Down = 2, LEFT = 3, RIGHT = 4;
-
+    private static final int UP = 1, DOWN = 2, LEFT = 3, RIGHT = 4;
     private static final int BOARD_SIZE_MIN = 10;
     private static final int BOARD_SIZE_MAX = 100;
     private static final int SPAWN_POWER_UP_INTERVAL = 5000; // 5 sekund w milisekundach
@@ -26,12 +25,10 @@ public class PacmanGame extends JFrame {
     public PacmanGame() {
         super("Pacman Game");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
-        setLocationRelativeTo(null);
 
         createMenu();
         initializeGame();
-        setVisible(true);
+
         tableModel = new PacmanTableModel();
         char[][] initialGameBoard = generateGameBoard(getBoardSizeFromUserInput());
         tableModel.setGameBoard(initialGameBoard);
@@ -39,7 +36,12 @@ public class PacmanGame extends JFrame {
         gameBoard = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(gameBoard);
         add(scrollPane);
+
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
+
 
     private void createMenu() {
         JMenuBar menuBar = new JMenuBar();
@@ -136,16 +138,25 @@ public class PacmanGame extends JFrame {
                 JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid variable.");
             }
         }
+
+        // Set a fixed maximum size for the JFrame
+        int maxFrameSize = 600;  // Adjust the value as needed
+
+        // Scale the board size to fit within the maximum frame size
+        double scale = Math.min(1.0, maxFrameSize / (double) boardSize);
+        boardSize = (int) (boardSize * scale);
+
         return boardSize;
     }
 
+
     private void handleKeyPress(int key) {
         switch (key) {
-            case KeyEvent.VK_UP:
+            case KeyEvent.VK_A:
                 movePacman(UP);
                 break;
             case KeyEvent.VK_DOWN:
-                movePacman(Down);
+                movePacman(DOWN);
                 break;
             case KeyEvent.VK_LEFT:
                 movePacman(LEFT);
@@ -172,7 +183,6 @@ public class PacmanGame extends JFrame {
         // Implement logic to move Pacman in the specified direction
         // Update the Pacman's position on the game board
 
-        // Example:
         switch (direction) {
             case UP:
                 if (isValidMove(pacmanRow - 1, pacmanCol)) {
@@ -180,7 +190,7 @@ public class PacmanGame extends JFrame {
                     pacmanRow--;
                 }
                 break;
-            case Down:
+            case DOWN:
                 if (isValidMove(pacmanRow + 1, pacmanCol)) {
                     // Move Pacman down
                     pacmanRow++;
@@ -234,12 +244,12 @@ public class PacmanGame extends JFrame {
     private void addWalls(char[][] gameBoard) {
         int boardSize = gameBoard.length;
         for (int i = 0; i < boardSize; i++) {
-            gameBoard[i][0] = '#'; // Left border
-            gameBoard[i][boardSize - 1] = '#'; // Right border
+            gameBoard[i][0] = '|'; // Left border
+            gameBoard[i][boardSize - 1] = '|'; // Right border
         }
         for (int j = 0; j < boardSize; j++) {
-            gameBoard[0][j] = '#'; // Top border
-            gameBoard[boardSize - 1][j] = '#'; // Bottom border
+            gameBoard[0][j] = '-'; // Top border
+            gameBoard[boardSize - 1][j] = '-'; // Bottom border
         }
     }
 
