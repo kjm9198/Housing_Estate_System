@@ -38,6 +38,8 @@ public class PacmanGame extends JFrame {
         gameBoard.setTableHeader(null);
         JScrollPane scrollPane = new JScrollPane(gameBoard);
         add(scrollPane);
+        gameBoard.setFocusable(true);
+
 
         pack();
         setLocationRelativeTo(null);

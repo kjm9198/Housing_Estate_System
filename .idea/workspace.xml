@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4b087eb-0dfa-42e2-9322-8d4f201deb6a" name="Changes" comment="Added the start">
-      <change afterPath="$PROJECT_DIR$/Sprites/Ghost Sprites.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sprites/PacmanClosed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sprites/PacmanDownNormal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sprites/PacmanDownOpen.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sprites/PacmanLeftNormal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sprites/PacmanLeftOpen.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sprites/PacmanUpNormal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sprites/PacmanUpOpen.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sprites/RedGhostUp.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PacmanGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PacmanGame.java" afterDir="false" />
-    </list>
+    <list default="true" id="d4b087eb-0dfa-42e2-9322-8d4f201deb6a" name="Changes" comment="Added the Sprites jpg" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +84,7 @@
       <workItem from="1702592325337" duration="1668000" />
       <workItem from="1702595220038" duration="24000" />
       <workItem from="1702595308538" duration="22000" />
-      <workItem from="1702595334378" duration="4564000" />
+      <workItem from="1702595334378" duration="5004000" />
     </task>
     <task id="LOCAL-00001" summary="Added the start">
       <option name="closed" value="true" />
@@ -147,7 +134,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702166410533</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added the start">
+      <option name="closed" value="true" />
+      <created>1702600649092</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702600649092</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added the Sprites jpg">
+      <option name="closed" value="true" />
+      <created>1702600669966</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702600669966</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +170,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added the start" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the start" />
+    <MESSAGE value="Added the Sprites jpg" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the Sprites jpg" />
   </component>
 </project>
