@@ -1,25 +1,31 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class PacmanGame extends JFrame {
     private static final long serialVersionUID = 1L;
-    private static final int UP = 1, DOWN = 2, LEFT = 3, RIGHT = 4;
     private static final int BOARD_SIZE_MIN = 10;
     private static final int BOARD_SIZE_MAX = 100;
     private static final int SPAWN_POWER_UP_INTERVAL = 5000; // 5 sekund w milisekundach
     private static final double POWER_UP_SPAWN_PROBABILITY = 0.25;
 
+    private Image pacmanUp, pacmanDown, pacmanLeft, pacmanRight;
+    private static final int UP = 1, DOWN = 2, LEFT = 3, RIGHT = 4;
     private JTable gameBoard;
     private PacmanTableModel tableModel;
     private Timer timer;
-    private int pacmanRow, pacmanCol, pacmanDirection;
+    private int pacmanRow;
+    private int pacmanCol;
+    private Image pacmanDirection;
     private int score, lives, time, highscore;
     private ArrayList<PowerUp> powerUps;
 
@@ -29,6 +35,7 @@ public class PacmanGame extends JFrame {
 
         createMenu();
         initializeGame();
+        loadImages();
 
         tableModel = new PacmanTableModel();
         char[][] initialGameBoard = generateGameBoard(getBoardSizeFromUserInput());
@@ -75,7 +82,7 @@ public class PacmanGame extends JFrame {
 
         pacmanRow = boardSize / 2;
         pacmanCol = boardSize / 2;
-        pacmanDirection = RIGHT;
+
 
         score = 0;
         lives = 3;
@@ -92,6 +99,27 @@ public class PacmanGame extends JFrame {
             }
         });
         timer.start();
+    }
+
+    private void loadImages() {
+        pacmanDown = loadImage("./Sprites/down.gif");
+        pacmanUp = loadImage("./Sprites/up.gif");
+        pacmanLeft = loadImage("./Sprites/left.gif");
+        pacmanRight = loadImage("./Sprites/right.gif");
+    }
+
+    private Image loadImage(String path) {
+        try {
+            URL resource = getClass().getResource(path);
+            if (resource != null) {
+                return ImageIO.read(resource);
+            } else {
+                System.err.println("Failed to load image: " + path);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private void startNewGame() {
@@ -145,16 +173,13 @@ public class PacmanGame extends JFrame {
             }
         }
 
-        // Set a fixed maximum size for the JFrame
         int maxFrameSize = 600;  // Adjust the value as needed
 
-        // Scale the board size to fit within the maximum frame size
         double scale = Math.min(1.0, maxFrameSize / (double) boardSize);
         boardSize = (int) (boardSize * scale);
 
         return boardSize;
     }
-
 
 
     private void returnToMainMenu() {
@@ -211,6 +236,7 @@ public class PacmanGame extends JFrame {
 
         // TODO: Implement PowerUp class
     }
+
     private void collectPowerUp(int row, int col) {
         // upon touching get the powerup
     }
@@ -238,19 +264,26 @@ public class PacmanGame extends JFrame {
 
     private class PacmanTableModel extends AbstractTableModel {
 
-        private int pacmanRow, pacmanCol, pacmanDirection;
+        private int pacmanRow;
+        private int pacmanCol;
+        private Image pacmanDirection;
         private char[][] gameBoard = new char[0][0];
+
         public void setGameBoard(char[][] newGameBoard) {
             this.gameBoard = newGameBoard;
             fireTableDataChanged();
         }
+
         public void setPacmanPosition(int row, int col) {
             this.pacmanRow = row;
             this.pacmanCol = col;
         }
-        public void setPacmanDirection(int direction) {
+
+        public void setPacmanDirection(Image direction) {
             this.pacmanDirection = direction;
         }
+
+
         @Override
         public int getRowCount() {
             return gameBoard.length;
@@ -263,82 +296,54 @@ public class PacmanGame extends JFrame {
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
-            if (rowIndex == pacmanRow && columnIndex == pacmanCol) {
-                // Pac-Man position
-                String pacmanImageFileName = getPacmanImageFileName();
-                try {
-                    ImageIcon pacmanIcon = new ImageIcon(pacmanImageFileName);
-                    return pacmanIcon;
-                } catch (Exception e) {
-                    System.err.println("Error loading Pac-Man image: " + e.getMessage());
-                    return "P"; // Placeholder character if image loading fails
-                }
-            } else {
-                return String.valueOf(gameBoard[rowIndex][columnIndex]);
-            }
-        }
-
-
-        private String getPacmanImageFileName() {
-            String closedPacman = "PacmanClosed.jpg";
-            String upNormalPacman = "PacmanUpNormal.jpg";
-            String upOpenPacman = "PacmanUpOpen.jpg";
-            String rightNormalPacman = "PacmanRightNormal.jpg";
-            String rightOpenPacman = "PacmanRightOpen.jpg";
-            String leftNormalPacman = "PacmanLeftNormal.jpg";
-            String leftOpenPacman = "PacmanLeftOpen.jpg";
-            String downNormalPacman = "PacmanDownNormal.jpg";
-            String downOpenPacman = "PacmanDownOpen.jpg";
-
-            String pacmanImageFileName;
-
-            switch (pacmanDirection) {
-                case UP:
-                    pacmanImageFileName = upNormalPacman;
-                    break;
-                case DOWN:
-                    pacmanImageFileName = downNormalPacman;
-                    break;
-                case LEFT:
-                    pacmanImageFileName = leftNormalPacman;
-                    break;
-                case RIGHT:
-                    pacmanImageFileName = rightNormalPacman;
-                    break;
+            // Change this method to return the appropriate image for the given position
+            char cellValue = gameBoard[rowIndex][columnIndex];
+            switch (cellValue) {
+                case 'U':
+                    return UP;
+                case 'D':
+                    return DOWN;
+                case 'L':
+                    return LEFT;
+                case 'R':
+                    return RIGHT;
+                // Add cases for other cell values (e.g., walls, power-ups)
                 default:
-                    pacmanImageFileName = closedPacman;
-                    break;
+                    return null;
             }
-            return pacmanImageFileName;
         }
-
 
 
         private void movePacman(int direction) {
-            // Implement logic to move the pacman based on the current direction
             switch (direction) {
                 case UP:
                     if (isValidMove(pacmanRow - 1, pacmanCol)) {
                         pacmanRow--;
+                        tableModel.setPacmanDirection(pacmanUp);
                     }
                     break;
                 case DOWN:
                     if (isValidMove(pacmanRow + 1, pacmanCol)) {
                         pacmanRow++;
+                        tableModel.setPacmanDirection(pacmanDown);
                     }
                     break;
                 case LEFT:
                     if (isValidMove(pacmanRow, pacmanCol - 1)) {
                         pacmanCol--;
+                        tableModel.setPacmanDirection(pacmanLeft);
                     }
                     break;
                 case RIGHT:
                     if (isValidMove(pacmanRow, pacmanCol + 1)) {
                         pacmanCol++;
+                        tableModel.setPacmanDirection(pacmanRight);
                     }
                     break;
             }
         }
+
+
         private void handleKeyPress(int key) {
             switch (key) {
                 case KeyEvent.VK_A:
@@ -369,8 +374,9 @@ public class PacmanGame extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new PacmanGame());
+        public static void main(String[] args) {
+            SwingUtilities.invokeLater(() -> new PacmanGame());
+        }
     }
 
-}
+

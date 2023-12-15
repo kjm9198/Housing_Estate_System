@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4b087eb-0dfa-42e2-9322-8d4f201deb6a" name="Changes" comment="Added the Sprites jpg" />
+    <list default="true" id="d4b087eb-0dfa-42e2-9322-8d4f201deb6a" name="Changes" comment="This is the correct version so far">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/Ghost Sprites.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/PacmanClosed.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/PacmanDownNormal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/PacmanDownOpen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/PacmanLeftNormal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/PacmanLeftOpen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/PacmanRightNormal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/PacmanRightOpen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/PacmanUpNormal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/PacmanUpOpen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/RedGhostUp.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PacmanGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PacmanGame.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,8 +35,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kjm9198&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="c39d2af3-3649-4f00-9a51-6cc66cb89d87" />
+        <option name="url" value="https://github.com/kjm9198/GUI_INT_2324L_PRO2_S24864_SRODOWISKO.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="ProblemsViewState">
     <option name="autoscrollToSource" value="true" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -34,25 +64,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "openjdk-20",
-    "last_opened_file_path": "C:/Users/MB/Downloads/Test pacman",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-20&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/MB/Downloads/GUI_INT_2324L_PRO2_S24864_SRODOWISKO-master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MB\Downloads\GUI_INT_2324L_PRO2_S24864_SRODOWISKO\GUI_INT_2324L_PRO2_S24864_SRODOWISKO\src" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="PacmanGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PacmanGame" />
@@ -84,7 +119,10 @@
       <workItem from="1702592325337" duration="1668000" />
       <workItem from="1702595220038" duration="24000" />
       <workItem from="1702595308538" duration="22000" />
-      <workItem from="1702595334378" duration="5004000" />
+      <workItem from="1702595334378" duration="5926000" />
+      <workItem from="1702602118836" duration="202000" />
+      <workItem from="1702602340816" duration="2457000" />
+      <workItem from="1702606449337" duration="371000" />
     </task>
     <task id="LOCAL-00001" summary="Added the start">
       <option name="closed" value="true" />
@@ -150,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702600669966</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="This is the correct version so far">
+      <option name="closed" value="true" />
+      <created>1702601285287</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702601285287</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +217,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added the start" />
     <MESSAGE value="Added the Sprites jpg" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the Sprites jpg" />
+    <MESSAGE value="This is the correct version so far" />
+    <option name="LAST_COMMIT_MESSAGE" value="This is the correct version so far" />
   </component>
 </project>
